@@ -1,0 +1,110 @@
+
+
+.controls-container { 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-sizing: border-box;
+
+    .control {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+
+        &[type="color"] {
+          height: 32px;
+          border: none;
+          background-color: #f6f6f6;
+          border-radius: 6px;
+          cursor: pointer;
+
+          &::-webkit-color-swatch {
+            border-radius: 6px;
+            border: none;
+          }
+          &::-moz-color-swatch {
+            border-radius: 6px;
+            border: none;
+          }
+        }
+
+        &[type="number"] {
+          all: unset; 
+          height: 32px;
+          padding: 0 16px;       
+          border-radius: 6px;
+          border: 1px solid #d9d9d9;
+
+          &:hover {
+            background-color: #f6f6f6;
+          }
+        }
+
+        &[type="radio"] {
+          cursor: pointer;
+        }
+      }
+
+      .radio-control {
+        display: flex;
+
+        > * {
+          flex: 1;
+        }
+
+        input {
+          width: fit-content;
+        }
+      }
+    }
+
+    .mobile-button, .mobile-open-button {
+      display: none;
+    }
+
+    .desktop-hide-menu-button {
+      all: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: black;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      padding: 8px 0;
+      margin-top: 1rem;
+      cursor: pointer;
+      
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: white;
+      }
+    }
+
+    &:not(.opened) .mobile-open-button {
+      all: unset;
+      width: 30px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(30px, -50%);
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+} 

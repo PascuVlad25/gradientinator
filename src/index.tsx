@@ -1,8 +1,8 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
 
-import App from './App';
-import { ContextProvider } from './state';
+import { App } from './components';
+import { AppContextProvider } from './state';
 
 const root = document.getElementById('root');
 
@@ -13,6 +13,6 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 }
 
 render(() => 
-  <ContextProvider>
+  <AppContextProvider>
     <App />
-  </ContextProvider>, root!);
+  </AppContextProvider>, root!);

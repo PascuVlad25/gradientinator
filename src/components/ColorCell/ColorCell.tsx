@@ -1,14 +1,16 @@
-import { Color } from "../models";
-import { useAppContext } from "../state";
-import { rgbToHex } from "../utils";
+import { useAppContext } from "@state";
+import { Color } from "@models";
+import { rgbToHex } from "@utils";
+import './ColorCell.scss';
 
 interface CellProps {
     color: Color
 }
 
 export function ColorCell(props: CellProps) {
-    const { setIsCopyMessageVisible, setCopyMessage } = useAppContext();
+    const { isCopyMessageVisible, setIsCopyMessageVisible, setCopyMessage } = useAppContext();
     const toasterTimeMs = 3000;
+    let timeouTimer;
 
     const copyColorToClipboard = () => {
         const hexColor = rgbToHex(props.color);
@@ -17,9 +19,13 @@ export function ColorCell(props: CellProps) {
     }
 
     const showCopyMessage = (message: string) => {
+        if (isCopyMessageVisible()) {
+            setIsCopyMessageVisible(false);
+            clearTimeout(timeouTimer);
+        }
         setCopyMessage(message);
         setIsCopyMessageVisible(true);
-        setTimeout(() => {
+        timeouTimer = setTimeout(() => {
             setIsCopyMessageVisible(false);
         }, toasterTimeMs);
     }

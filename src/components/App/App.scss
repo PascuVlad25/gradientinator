@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
+
+:root {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  margin: 0;
+
+  .app-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  
+    .main-section {
+      height: 100vh;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}
+
+.action-button {        
+  all: unset;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+}
